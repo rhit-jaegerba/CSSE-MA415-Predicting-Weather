@@ -1,11 +1,10 @@
 import requests
-# import csv
 import json
 
 location_url = "http://api.openweathermap.org/geo/1.0/direct?q={city_name},{state_code}&appid={open_weather_api_key}"
 station_url = "https://api.weather.gov/points/{lat},{lon}"
 forecast_url = "https://api.weather.gov/gridpoints/{station}/{lat},{lon}/forecast/hourly"
-open_weather_url = "https://pro.openweathermap.org/data/2.5/forecast/hourly?lat={lat}&lon={lon}&appid={open_weather_api_key}"
+open_weather_url = "https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude=minutely,daily,alerts,tags&appid={open_weather_api_key}"
 uv_url = "https://api.openuv.io/api/v1/forecast?lat={lat}&lng={lon}"
 
 
@@ -21,13 +20,13 @@ uv_headers = {
 def check_season(time):
     month = time[5:7]
     if(month == '09' or month == '10' or month == '11'):
-        return "autumn"
+        return "Autumn"
     if(month == '12' or month == '01' or month == '02'):
-        return "winter"
+        return "Winter"
     if(month == '03' or month == '04' or month == '05'):
-        return "spring"
+        return "Spring"
     if(month == '06' or month == '07' or month == '08'):
-        return "summer"
+        return "Summer"
     else:
         raise Exception("Invalid Season")
 
@@ -56,55 +55,67 @@ def check_location(index):
         raise Exception("Invalid Location Index")
 
 
-def get_data(station, lat, lon, index, gridX, gridY):
-    print(station)
-    print(lat)
-    print(lon)
-    print(index)
+def check_forecast(param):
+    if "Clear" in param or "Sun" in param:
+        return 'Sunny'
+    if "Snow" in param:
+        return 'Snowy'
+    if "Cloud" in param or "Fog" in param:
+        return 'Cloudy'
+    if "Showers" in param or "Thunderstorms" in param:
+        if "Chance" in param:
+            return 'Cloudy'
+        else:
+            return 'Rainy'
+    else:
+        print("Could not determine weather type for",param)
+        print()
+        return 'Unknown'
 
+
+def get_data(station, lat, lon, index, gridX, gridY):
     url = forecast_url.format(station=station, lat=gridX, lon=gridY)
     response = requests.get(url)
     response.raise_for_status()
 
     data = response.json()
     values = data['properties']['periods']
-    print(len(values))
 
-    temperature = ['Temperature']
-    humidity = ['Humidity']
-    wind_speed = ['Wind Speed']
-    precipitation = ['Precipitation (%)']
-    location = ['Location']
-    season = ['Season']
-    atmosphere = ['Atmospheric Pressure']
-    visibility = ['Visibility(km)']
-    cloudiness = ['Cloud Cover']
-    uv = ['UV Index']
-    weather_type = ['Weather Type']
+    temperature = []
+    humidity = []
+    wind_speed = []
+    precipitation = []
+    location = []
+    season = []
+    atmosphere = []
+    visibility = []
+    cloudiness = []
+    uv = []
+    weather_type = []
 
     for i in range(len(values)):
         temp_f = values[i]['temperature']
         temperature.append((temp_f-32)*5/9)
         humidity.append(values[i]['relativeHumidity']['value'])
-        wind_speed.append(values[i]['windSpeed'])
         precipitation.append(values[i]['probabilityOfPrecipitation']['value'])
         location.append(check_location(index))
         time = values[i]['startTime']
         season.append(check_season(time))
-        weather_type.append(values[i]['shortForecast'])
+        weather_type.append(check_forecast(values[i]['shortForecast']))
 
     url = open_weather_url.format(open_weather_api_key=open_weather_api_key, lat=lat, lon=lon)
-    print(url)
     response = requests.get(url)
     response.raise_for_status()
 
     data = response.json()
-    values = data['list']
+    values = data['hourly']
 
     for i in range(len(values)):
-        atmosphere.append(values[i]['main']['pressure'])
+        atmosphere.append(values[i]['pressure'])
         visibility.append(values[i]['visibility'] / 1000)
-        cloudiness.append(check_clouds(values[i]['clouds']['all']))
+        cloudiness.append(check_clouds(values[i]['clouds']))
+        wind_speed.append(values[i]['wind_speed'])
+
 
     url = uv_url.format(lat=lat, lon=lon)
     response = requests.get(url,headers=uv_headers)
@@ -116,14 +127,30 @@ def get_data(station, lat, lon, index, gridX, gridY):
     for i in range(len(values)):
         uv.append(values[i]['uv'])
 
-    rows = zip(temperature, humidity, wind_speed, precipitation, cloudiness, atmosphere, uv, season, visibility, location, weather_type)
+    rows = [temperature, humidity, wind_speed, precipitation, cloudiness, atmosphere, uv, season, visibility, location, weather_type]
     return rows
+
+
+def find_min_len(csv_data):
+    smallest = len(csv_data[0])
+    for i in range(len(csv_data)):
+        if len(csv_data[i]) < smallest:
+            smallest = len(csv_data[i])
+    return smallest
+
 
 def make_csv(csv_data):
     with open('live_weather_classification_data.csv', mode='w', newline='', encoding='utf-8') as f:
         import csv
         writer = csv.writer(f)
-        writer.writerows(csv_data)
+        row = ['Temperature','Humidity','Wind Speed','Precipitation (%)','Cloud Cover','Atmospheric Pressure','UV Index','Season','Visibility(km)','Location','Weather Type']
+        writer.writerow(row)
+        for index in range(len(csv_data)):
+            for i in range(find_min_len(csv_data[index])):
+                row = []
+                for k in range(len(csv_data[index])):
+                    row.append(csv_data[index][k][i])
+                writer.writerow(row)
 
 def main():
     inland_town_name = input("Enter the city name on an inland town: ")
@@ -134,6 +161,8 @@ def main():
 
     coastal_town_name = input("Enter the city name on an coastal town: ")
     coastal_state_name = input("Enter the state of the coastal town: ")
+
+    print()
 
     town_name = [coastal_town_name, inland_town_name, mountain_town_name]
     town_state = [coastal_state_name, inland_state_name, mountain_state_name]
@@ -165,6 +194,7 @@ def main():
 
 
     make_csv(csv_data)
+    print('File has successfully been created!')
 
 if __name__ == '__main__':
     main()
