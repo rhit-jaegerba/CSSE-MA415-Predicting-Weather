@@ -143,7 +143,7 @@ def make_csv(csv_data):
     with open('live_weather_classification_data.csv', mode='w', newline='', encoding='utf-8') as f:
         import csv
         writer = csv.writer(f)
-        row = ['Temperature','Humidity','Wind Speed','Precipitation (%)','Cloud Cover','Atmospheric Pressure','UV Index','Season','Visibility(km)','Location','Weather Type']
+        row = ['Temperature','Humidity','Wind Speed','Precipitation (%)','Cloud Cover','Atmospheric Pressure','UV Index','Season','Visibility (km)','Location','Weather Type']
         writer.writerow(row)
         for index in range(len(csv_data)):
             for i in range(find_min_len(csv_data[index])):
