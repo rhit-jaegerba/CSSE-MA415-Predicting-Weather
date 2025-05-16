@@ -1,45 +1,60 @@
 Temperature,Humidity,Wind Speed,Precipitation (%),Cloud Cover,Atmospheric Pressure,UV Index,Season,Visibility (km),Location,Weather Type
-27.77777777777778,79,4.62,0,partly cloudy,1014,0,Spring,10.0,coastal,Cloudy
-27.77777777777778,77,4.32,0,partly cloudy,1014,0.3033,Spring,10.0,coastal,Sunny
-27.22222222222222,74,4.2,0,partly cloudy,1014,1.321,Spring,10.0,coastal,Sunny
-26.666666666666668,72,3.95,0,partly cloudy,1015,3.2487,Spring,10.0,coastal,Sunny
-25.555555555555557,76,4.01,0,clear,1014,6.057,Spring,10.0,coastal,Sunny
-25.0,76,3.82,0,partly cloudy,1014,8.6599,Spring,10.0,coastal,Sunny
-24.444444444444443,79,3.27,0,overcast,1013,10.5484,Spring,10.0,coastal,Sunny
-23.88888888888889,79,3.64,0,partly cloudy,1013,10.8126,Spring,10.0,coastal,Sunny
-23.88888888888889,79,3.38,0,partly cloudy,1013,9.5014,Spring,10.0,coastal,Sunny
-23.88888888888889,79,3.11,1,partly cloudy,1014,6.8986,Spring,10.0,coastal,Sunny
-23.333333333333332,79,2.79,1,partly cloudy,1014,4.1978,Spring,10.0,coastal,Sunny
-23.88888888888889,79,2.49,1,clear,1015,1.82,Spring,10.0,coastal,Sunny
-24.444444444444443,76,2.49,1,clear,1015,0.5284,Spring,10.0,coastal,Sunny
-25.555555555555557,71,2.25,1,clear,1016,0.0489,Spring,10.0,coastal,Sunny
-22.77777777777778,73,1.72,16,overcast,1005,0,Spring,10.0,inland,Cloudy
-21.11111111111111,81,0.93,16,overcast,1005,0.2153,Spring,10.0,inland,Cloudy
-20.0,84,1.32,16,overcast,1006,0.8611,Spring,10.0,inland,Cloudy
-19.444444444444443,84,0.73,16,overcast,1006,2.2702,Spring,10.0,inland,Cloudy
-18.88888888888889,87,0.91,16,overcast,1007,4.1391,Spring,10.0,inland,Cloudy
-18.333333333333332,90,1.39,16,overcast,1007,6.2919,Spring,10.0,inland,Cloudy
-18.333333333333332,90,1.96,7,overcast,1007,7.9652,Spring,10.0,inland,Cloudy
-17.77777777777778,90,2.13,7,overcast,1007,8.6208,Spring,10.0,inland,Cloudy
-17.22222222222222,93,1.97,7,overcast,1007,8.2978,Spring,10.0,inland,Cloudy
-17.22222222222222,90,2.29,7,cloudy,1007,6.6735,Spring,10.0,inland,Cloudy
-17.22222222222222,90,2.18,7,cloudy,1007,4.7165,Spring,10.0,inland,Cloudy
-16.666666666666668,93,1.97,7,partly cloudy,1008,2.7399,Spring,10.0,inland,Cloudy
-17.22222222222222,93,2.62,26,clear,1008,1.1449,Spring,10.0,inland,Cloudy
-19.444444444444443,87,2.95,22,clear,1008,0.3425,Spring,10.0,inland,Cloudy
-21.666666666666668,79,3.24,23,clear,1008,0.0391,Spring,10.0,inland,Cloudy
-29.444444444444443,11,5.58,1,overcast,991,0,Spring,10.0,mountain,Cloudy
-28.333333333333332,12,3.72,1,overcast,991,0.1957,Spring,10.0,mountain,Cloudy
-26.11111111111111,15,1.26,1,overcast,993,0.7632,Spring,10.0,mountain,Cloudy
-23.333333333333332,17,1.97,1,overcast,994,1.8494,Spring,10.0,mountain,Cloudy
-21.666666666666668,18,4.19,1,overcast,995,3.5618,Spring,10.0,mountain,Sunny
-20.0,20,4.92,1,cloudy,996,5.3819,Spring,10.0,mountain,Sunny
-17.77777777777778,23,3.87,1,clear,996,6.8105,Spring,10.0,mountain,Sunny
-16.666666666666668,26,1.84,1,clear,996,7.3683,Spring,10.0,mountain,Sunny
-15.555555555555555,28,2.16,1,clear,996,6.9573,Spring,10.0,mountain,Sunny
-13.88888888888889,30,1.77,1,clear,997,5.7146,Spring,10.0,mountain,Sunny
-12.777777777777779,32,1.01,1,clear,998,4.0511,Spring,10.0,mountain,Sunny
-11.666666666666666,35,0.83,1,clear,999,2.368,Spring,10.0,mountain,Sunny
-10.555555555555555,39,1.61,0,clear,999,1.0079,Spring,10.0,mountain,Sunny
-12.222222222222221,35,3.15,0,clear,999,0.3033,Spring,10.0,mountain,Sunny
-13.88888888888889,31,4.3,0,clear,999,0.0294,Spring,10.0,mountain,Sunny
+21.11111111111111,84,3.38,0,clear,1005,0,Spring,10.0,inland,Sunny
+23.88888888888889,71,3.89,0,clear,1005,0.2151,Spring,10.0,inland,Sunny
+25.555555555555557,64,5.1,0,clear,1005,0.8604,Spring,10.0,inland,Sunny
+26.666666666666668,58,5.98,0,clear,1005,2.1216,Spring,10.0,inland,Sunny
+28.333333333333332,51,6.01,1,clear,1004,4.1357,Spring,10.0,inland,Sunny
+29.444444444444443,48,6.82,1,clear,1003,6.2867,Spring,10.0,inland,Sunny
+30.0,45,7.21,3,clear,1003,7.9586,Spring,10.0,inland,Sunny
+30.555555555555557,42,6.91,6,clear,1002,8.7603,Spring,10.0,inland,Sunny
+30.555555555555557,42,6.96,50,clear,1000,8.4572,Spring,10.0,inland,Rainy
+28.88888888888889,49,7.61,85,clear,1000,6.8636,Spring,10.0,inland,Rainy
+26.666666666666668,58,13.1,75,clear,1001,4.9081,Spring,8.507,inland,Rainy
+24.444444444444443,69,8.23,58,partly cloudy,1000,2.7376,Spring,9.184,inland,Cloudy
+22.22222222222222,79,9.08,37,partly cloudy,1000,1.2515,Spring,10.0,inland,Rainy
+21.666666666666668,81,5.72,18,partly cloudy,1002,0.3911,Spring,10.0,inland,Rainy
+21.11111111111111,78,4.94,15,clear,1002,0.0489,Spring,10.0,inland,Cloudy
+8.333333333333334,49,1.73,1,clear,1010,0,Spring,10.0,mountain,Sunny
+11.11111111111111,39,3.28,1,clear,1010,0.1955,Spring,10.0,mountain,Sunny
+12.777777777777779,32,3.26,1,clear,1009,0.7626,Spring,10.0,mountain,Sunny
+16.666666666666668,24,4.68,1,clear,1009,1.8479,Spring,10.0,mountain,Sunny
+17.77777777777778,22,7.2,1,clear,1008,3.5589,Spring,10.0,mountain,Sunny
+19.444444444444443,19,6.46,1,clear,1006,5.3774,Spring,10.0,mountain,Sunny
+20.0,19,7.54,2,clear,1005,6.8049,Spring,10.0,mountain,Sunny
+21.666666666666668,18,7.2,3,partly cloudy,1004,7.4795,Spring,10.0,mountain,Sunny
+22.77777777777778,18,7.79,3,partly cloudy,1004,7.0884,Spring,10.0,mountain,Sunny
+22.77777777777778,18,8.19,3,partly cloudy,1003,5.8761,Spring,10.0,mountain,Sunny
+23.333333333333332,17,8.5,3,partly cloudy,1004,4.214,Spring,10.0,mountain,Sunny
+22.77777777777778,19,8.21,5,cloudy,1004,2.503,Spring,10.0,mountain,Cloudy
+22.22222222222222,20,8.31,5,overcast,1005,1.095,Spring,10.0,mountain,Cloudy
+20.555555555555557,24,7.4,5,overcast,1006,0.352,Spring,10.0,mountain,Cloudy
+18.333333333333332,29,6.25,5,overcast,1007,0.0489,Spring,10.0,mountain,Cloudy
+26.11111111111111,85,1.79,0,partly cloudy,1017,0,Spring,10.0,coastal,Sunny
+27.22222222222222,82,2.83,0,partly cloudy,1017,0.3031,Spring,10.0,coastal,Sunny
+28.333333333333332,77,3.41,0,clear,1017,1.3199,Spring,10.0,coastal,Sunny
+28.333333333333332,74,4.04,0,clear,1017,3.246,Spring,10.0,coastal,Sunny
+28.88888888888889,72,4.39,1,clear,1017,6.0521,Spring,10.0,coastal,Sunny
+28.88888888888889,72,4.25,1,clear,1016,8.6528,Spring,10.0,coastal,Sunny
+28.88888888888889,72,4.52,1,clear,1016,10.5398,Spring,10.0,coastal,Sunny
+28.88888888888889,72,4.68,1,clear,1015,10.882,Spring,10.0,coastal,Sunny
+29.444444444444443,67,4.09,0,partly cloudy,1015,9.4936,Spring,10.0,coastal,Sunny
+28.333333333333332,72,3.77,0,partly cloudy,1015,7.0982,Spring,10.0,coastal,Sunny
+28.333333333333332,72,3.77,0,partly cloudy,1015,4.1944,Spring,10.0,coastal,Sunny
+28.333333333333332,74,3.82,0,partly cloudy,1016,1.9554,Spring,10.0,coastal,Sunny
+27.22222222222222,79,4.69,0,clear,1016,0.5866,Spring,10.0,coastal,Sunny
+27.22222222222222,79,5.15,0,clear,1016,0.0684,Spring,10.0,coastal,Sunny
+19.444444444444443,81,1.56,3,clear,1007,0,Spring,10.0,inland,Cloudy
+21.666666666666668,73,1.65,4,clear,1007,0.1662,Spring,10.0,inland,Cloudy
+23.333333333333332,66,1.92,8,clear,1007,0.6844,Spring,10.0,inland,Cloudy
+24.444444444444443,62,2.04,6,partly cloudy,1006,1.711,Spring,10.0,inland,Sunny
+25.555555555555557,58,2.31,4,partly cloudy,1006,3.2167,Spring,10.0,inland,Sunny
+26.11111111111111,54,2.56,2,partly cloudy,1005,4.8397,Spring,10.0,inland,Sunny
+26.11111111111111,56,2.73,5,cloudy,1004,6.2965,Spring,10.0,inland,Sunny
+26.11111111111111,56,1.84,8,overcast,1004,7.02,Spring,10.0,inland,Sunny
+25.555555555555557,58,2.16,12,overcast,1004,6.7365,Spring,10.0,inland,Sunny
+24.444444444444443,62,2.55,12,overcast,1004,5.8272,Spring,10.0,inland,Cloudy
+22.77777777777778,68,2.78,12,overcast,1004,4.1748,Spring,10.0,inland,Cloudy
+21.11111111111111,76,2.55,12,cloudy,1005,2.6203,Spring,10.0,inland,Cloudy
+20.0,81,2,13,partly cloudy,1005,1.2808,Spring,10.0,inland,Cloudy
+18.88888888888889,87,2.08,14,partly cloudy,1005,0.44,Spring,10.0,inland,Cloudy
+18.333333333333332,90,2.12,15,cloudy,1005,0.0782,Spring,10.0,inland,Cloudy

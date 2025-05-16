@@ -52,7 +52,7 @@ def check_location(index):
     if index == 2:
         return "mountain"
     else:
-        raise Exception("Invalid Location Index")
+        raise Exception("Invalid Location Index", index)
 
 
 def check_forecast(param):
@@ -73,7 +73,17 @@ def check_forecast(param):
         return 'Unknown'
 
 
-def get_data(station, lat, lon, index, gridX, gridY):
+def get_data(lat, lon, index):
+    url = station_url.format(lat=lat, lon=lon)
+
+    response = requests.get(url)
+    response.raise_for_status()
+
+    data = response.json()
+    station = data['properties']['gridId']
+    gridX = data['properties']['gridX']
+    gridY = data['properties']['gridY']
+
     url = forecast_url.format(station=station, lat=gridX, lon=gridY)
     response = requests.get(url)
     response.raise_for_status()
@@ -153,23 +163,34 @@ def make_csv(csv_data):
                 writer.writerow(row)
 
 def main():
-    inland_town_name = input("Enter the city name on an inland town: ")
-    inland_state_name = input("Enter the state of the inland town: ")
+    # inland_town_name = input("Enter the city name on an inland town: ")
+    # inland_state_name = input("Enter the state of the inland town: ")
+    #
+    # mountain_town_name = input("Enter the city name on a mountain town: ")
+    # mountain_state_name = input("Enter the state of the mountain town: ")
+    #
+    # coastal_town_name = input("Enter the city name on an coastal town: ")
+    # coastal_state_name = input("Enter the state of the coastal town: ")
 
-    mountain_town_name = input("Enter the city name on a mountain town: ")
-    mountain_state_name = input("Enter the state of the mountain town: ")
+    town_name = []
+    town_state = []
+    indexes = []
 
-    coastal_town_name = input("Enter the city name on an coastal town: ")
-    coastal_state_name = input("Enter the state of the coastal town: ")
+    while(True):
+        cur_town_name = input('Enter the city name for a US town, or enter "Stop" to quit: ')
+        if(cur_town_name == 'Stop'):
+            break
+        cur_state_name = input('Enter the state of the US town: ')
+        cur_index = input('Enter 0 for a coastal town, 1 for an inland town, and 2 for a mountain town: ')
+        town_name.append(cur_town_name)
+        town_state.append(cur_state_name)
+        indexes.append(int(cur_index))
 
     print()
 
-    town_name = [coastal_town_name, inland_town_name, mountain_town_name]
-    town_state = [coastal_state_name, inland_state_name, mountain_state_name]
-
     csv_data = []
 
-    for i in range(3):
+    for i in range(len(town_name)):
         url = location_url.format(city_name=town_name[i], state_code=town_state[i],
                                   open_weather_api_key=open_weather_api_key)
         response = requests.get(url)
@@ -179,17 +200,7 @@ def main():
         lat = data[0].get('lat')
         lon = data[0].get('lon')
 
-        url = station_url.format(lat=lat, lon=lon)
-
-        response = requests.get(url)
-        response.raise_for_status()
-
-        data = response.json()
-        station = data['properties']['gridId']
-        gridX = data['properties']['gridX']
-        gridY = data['properties']['gridY']
-
-        csv_insert = get_data(station, lat, lon, i, gridX, gridY)
+        csv_insert = get_data(lat, lon, indexes[i])
         csv_data.append(csv_insert)
 
 
