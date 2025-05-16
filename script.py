@@ -163,15 +163,6 @@ def make_csv(csv_data):
                 writer.writerow(row)
 
 def main():
-    # inland_town_name = input("Enter the city name on an inland town: ")
-    # inland_state_name = input("Enter the state of the inland town: ")
-    #
-    # mountain_town_name = input("Enter the city name on a mountain town: ")
-    # mountain_state_name = input("Enter the state of the mountain town: ")
-    #
-    # coastal_town_name = input("Enter the city name on an coastal town: ")
-    # coastal_state_name = input("Enter the state of the coastal town: ")
-
     town_name = []
     town_state = []
     indexes = []
